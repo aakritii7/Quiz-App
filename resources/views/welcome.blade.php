@@ -1,0 +1,1 @@
+<h1>Laravel Quiz App</h1>
