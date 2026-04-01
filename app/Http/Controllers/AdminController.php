@@ -42,9 +42,10 @@ class AdminController extends Controller
 
 
     function categories(){
+        $categories=Category::get();
         $admin=Session::get('admin');
         if($admin){
-            return view('categories',['name'=>$admin->name]);
+            return view('categories',['name'=>$admin->name,'categories'=>$categories]);
         }else{
             return redirect('admin-login');
         }
@@ -66,6 +67,5 @@ class AdminController extends Controller
             Session::flash('category','Success: Category '.$request->category . ' Added.');
         }
         return redirect('admin-categories');
-
     }
 }
